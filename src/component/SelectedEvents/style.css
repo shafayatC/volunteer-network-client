@@ -1,0 +1,50 @@
+.slEventsWrap {
+	padding-top: 20px;
+}
+.slEvent {
+	float: left;
+	width: 49%;
+	background: #fff;
+	padding: 15px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	position: relative;
+	box-shadow: 0 0 8px -4px #a1a1a1;
+}
+.slEvent img {
+	float: left;
+	width: 30%;
+	height: auto;
+}
+.slEvent:nth-child(2n) {
+	float: right;
+}
+.evtDetail {
+	width: 68%;
+	float: right;
+	height: 100%;
+}
+.evtDetail {
+	width: 66%;
+	float: right;
+	height: 100%;
+}
+.evtDetail h3 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.evtDetail p {
+	font-size: 16px;
+}
+.evtDetail button {
+	background: #e3e3e3;
+	float: right;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	border: none;
+	padding: 10px 22px;
+	font-size: 11px;
+	color: #a1a1a1;
+	border-radius: 4px;
+}

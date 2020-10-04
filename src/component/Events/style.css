@@ -1,0 +1,23 @@
+.eventWrap {
+	margin-top: 50px;
+}
+.event {
+	width: 23%;
+	float: left;
+	margin-right: 29px;
+	margin-bottom: 40px;
+}
+.event img {
+	width: 100%;
+}
+.event button {
+	width: 100%;
+	background: #ffbd3e;
+	border: none;
+	padding: 27px 10px;
+	color: #fff;
+}
+.event:nth-child(4n) {
+	margin-right: 0px;
+	float: right;
+}
