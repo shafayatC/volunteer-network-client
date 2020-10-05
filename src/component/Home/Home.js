@@ -39,7 +39,7 @@ const Home = () => {
                 <Row>
                     <Col>
                       <div className="eventWrap fwidth">
-                      {eventList.map(data =><Events name={data.name} image={data.image}></Events>)}     
+                          {eventList.map(data =><Events name={data.name} image={data.image}></Events>)}     
                         </div>
                     </Col>
                 </Row>

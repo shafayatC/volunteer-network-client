@@ -19,7 +19,10 @@ export const ManageContext = createContext();
 
 function App() {
   const location = useLocation();
-  const [eventSelect, setEventSelect] =  useState(); 
+  const [eventSelect, setEventSelect] =  useState({
+    eventname:'', 
+    eventimg: ''
+  }); 
   const [user, setUser] = useState([]); 
 
   return (
@@ -36,10 +39,10 @@ function App() {
           </Route>
           <Route path="/user-event">
             <Header></Header>
-            <UserEvents></UserEvents>
+            <UserEvents user={user}></UserEvents>
           </Route>
           <PrivateRoute path="/reg-event">
-            <RegVolunteer selectedEvent={eventSelect}></RegVolunteer>
+            <RegVolunteer selectedEvent={eventSelect.eventname} eventImg={eventSelect.eventimg} user={user}></RegVolunteer>
           </PrivateRoute>
           <Route path="/login">
             <Login></Login>

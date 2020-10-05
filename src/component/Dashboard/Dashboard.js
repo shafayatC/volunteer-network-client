@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Link
   } from "react-router-dom";
   import './style.css'; 
 
 const Dashboard = () => {
+    const [eventList, setEventList] =  useState([]); 
+
+    const deletEvent = val => {
+        console.log(val);
+        fetch(`http://localhost:4000/userEventDelete/${val}`, {
+          method: 'DELETE',
+        })
+        .then(res => res.text()) // or res.json()
+        .then(res => {
+          if(res){
+            fetch("http://localhost:4000/allRegEvent")
+            .then(res => res.json())
+            .then(data =>setEventList(data))
+          }
+        })
+      }
+
+    useEffect(()=>{
+        fetch("http://localhost:4000/allRegEvent")
+        .then(res => res.json())
+        .then(data =>setEventList(data))
+    },[])
+
     return (
         <div>
             <div className="addEventWrap fwidth">
@@ -19,6 +42,7 @@ const Dashboard = () => {
                 <h2 class="dashHeading">Volunteer register list</h2>
                 <div className="eventForm">
                     <div className="userListWrap">
+
                     <table className="table_1">
                         <tr>
                             <th>Name</th>
@@ -27,21 +51,18 @@ const Dashboard = () => {
                             <th>Volunteer list</th>
                             <th>Action</th>
                         </tr>
-                        <tr>
-                            <td>Pro Resel</td>
-                            <td>sufi@gmail.com</td>
-                            <td>22-10-2020</td>
-                            <td>Organize books at the library</td>
-                            <td><button className="trash"><img src={require('./img/trash.png')} /></button></td>
-                        </tr>
-                        <tr>
-                            <td>Pro Resel</td>
-                            <td>sufi@gmail.com</td>
-                            <td>22-10-2020</td>
-                            <td>Organize books at the library</td>
-                            <td><button className="trash"><img src={require('./img/trash.png')} /></button></td>
-                        </tr>
+                        {eventList.map(data=>
+                                <tr>
+                                <td>{data.eventname}</td>
+                                <td>{data.email}</td>
+                                <td>{data.date}</td>
+                                <td>{data.description}</td>
+                                <td><button onClick={()=>deletEvent(data._id)} className="trash"><img src={require('./img/trash.png')} /></button></td>
+                            </tr>
+                            )}
+                    
                         </table>
+
                     </div>
                 </div>
                 </div>

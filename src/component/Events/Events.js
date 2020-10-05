@@ -10,7 +10,10 @@ const Events = (props) => {
     const [setEventSelect] = useContext(ManageContext);
     
     const eventHandler = () => {
-        setEventSelect(props.name); 
+        setEventSelect({
+            eventname: props.name,
+            eventimg: props.image
+        }); 
     }
     return (
 

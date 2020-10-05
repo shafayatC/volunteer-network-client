@@ -1,6 +1,4 @@
-.slEventsWrap {
-	padding-top: 20px;
-}
+
 .slEvent {
 	float: left;
 	width: 49%;
@@ -15,6 +13,7 @@
 	float: left;
 	width: 30%;
 	height: auto;
+	height: 170px;
 }
 .slEvent:nth-child(2n) {
 	float: right;
