@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import './App.css';
 import EventCreate from './component/Dashboard/EventCreate';
 import Header from './component/Header/Header';
@@ -13,12 +13,17 @@ import UserEvents from './component/UserEvents/UserEvents';
 import Login from './component/Login/Login';
 import RegVolunteer from './component/RegVolunteer/RegVolunteer';
 import Dashboard from './component/Dashboard/Dashboard';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute';
+
+export const ManageContext = createContext(); 
 
 function App() {
-  let location = useLocation();
-
+  const location = useLocation();
+  const [eventSelect, setEventSelect] =  useState(); 
+  const [user, setUser] = useState([]); 
 
   return (
+    <ManageContext.Provider value={[setEventSelect, user, setUser]}> 
     <div className={`${location.pathname === "/" && "hmbg"} ${location.pathname !== "/dash-event" && "App"}  `}>
       
         <Switch>
@@ -33,9 +38,9 @@ function App() {
             <Header></Header>
             <UserEvents></UserEvents>
           </Route>
-          <Route path="/reg-event">
-            <RegVolunteer></RegVolunteer>
-          </Route>
+          <PrivateRoute path="/reg-event">
+            <RegVolunteer selectedEvent={eventSelect}></RegVolunteer>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>
@@ -45,6 +50,7 @@ function App() {
         </Switch>
 
     </div>
+    </ManageContext.Provider>
   );
 }
 

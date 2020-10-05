@@ -6,3 +6,11 @@
 }
 .hmbg { background: url(./component//Header/img/homeheaderbg.jpg) no-repeat #f8fafc; } 
 .space {padding-bottom: 150px; }
+button{outline: none; cursor: pointer;}
+.error404 {
+	text-align: center;
+	font-size: 40px;
+	color: red;
+	margin-top: 121px;
+}
+textarea:focus, input:focus, a{ outline: none;}

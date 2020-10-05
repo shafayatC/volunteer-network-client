@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +7,16 @@ import Events from '../Events/Events';
 
 
 const Home = () => {
+    const [eventList, setEventList] = useState([]);
+
+    useEffect(()=>{
+
+        fetch("http://localhost:4000/eventList")
+        .then(res => res.json())
+        .then(data => setEventList(data))
+
+    },[])
+
     return (
         <div>
            <Container>
@@ -24,7 +34,16 @@ const Home = () => {
                     </Col>
                 </Row>
             </Container> 
-            <Events></Events>
+            
+           <Container>
+                <Row>
+                    <Col>
+                      <div className="eventWrap fwidth">
+                      {eventList.map(data =><Events name={data.name} image={data.image}></Events>)}     
+                        </div>
+                    </Col>
+                </Row>
+            </Container> 
         </div>
     );
 };

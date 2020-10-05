@@ -1,6 +1,4 @@
-.eventWrap {
-	margin-top: 50px;
-}
+
 .event {
 	width: 23%;
 	float: left;
@@ -9,15 +7,29 @@
 }
 .event img {
 	width: 100%;
+	position: relative;
 }
-.event button {
+.evnButton {
 	width: 100%;
 	background: #ffbd3e;
 	border: none;
 	padding: 27px 10px;
 	color: #fff;
+	margin-top: -25px;
+	float: left;
+	z-index: 999;
+	position: relative;
+	text-align: center;
 }
-.event:nth-child(4n) {
-	margin-right: 0px;
-	float: right;
+.evnButton:hover {color: #fff; text-decoration:none;}
+.event:nth-child(2n) .evnButton{background-color: #ff7044;}
+.event:nth-child(3n) .evnButton{background-color: #3f90fc;}
+.event:nth-child(4n) .evnButton{background-color: #421fcf;}
+.event:nth-child(5n) .evnButton{background-color: #3f90fc;}
+.event:nth-child(6n) .evnButton{background-color: #421fcf;}
+.event:nth-child(7n) .evnButton{background-color: #ffbd3e;}
+.event:nth-child(8n) .evnButton{background-color: #ff7044;}
+.event img {
+	width: 100%;
+	height: 280px;
 }

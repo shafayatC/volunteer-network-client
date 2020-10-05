@@ -21,7 +21,7 @@ import TextField from '@material-ui/core/TextField';
     },
   }));
 
-const RegVolunteer = () => {
+const RegVolunteer = (props) => {
     const classes = useStyles();
 
     return (
@@ -46,7 +46,7 @@ const RegVolunteer = () => {
                             }}
                         />
                         <input type="text" placeholder="Description"></input>
-                        <input className="disable" type="text" placeholder="Organize books at the library" disabled></input>
+                        <input value={props.selectedEvent} className="disable" type="text" disabled></input>
                         <button>Registration</button>
                     </form>
               </div>
