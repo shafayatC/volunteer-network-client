@@ -96,6 +96,16 @@
 .p_7 {
 	padding-top: 15px;
 }
+
+#inputimg {
+	width: 100%;
+	border: thin solid #c9c9c9;
+	border-radius: 4px;
+	padding: 4px 10px;
+	float: ;
+	float: left;
+	display: none;
+}
 .upload {
 	border: thin solid #0084ff;
 	background: #e5f3ff;

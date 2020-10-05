@@ -19,35 +19,70 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const EventCreate = () => {
+  const EventCreate = () => {
 
-    const [vlEvent, setVlEvent] = useState();
+    const [vlEvent, setVlEvent] = useState({
+      name: '',
+      description: '',
+      date: '', 
+      image: '' 
+    });
     const classes = useStyles();
 
     const onchangeEventName =(event)=> {
-        setVlEvent(event.target.value);
+        setVlEvent({
+          ...vlEvent,
+          name: event.target.value,
+        })
+    }
+    const onchangeDes =(event)=>{
+      setVlEvent({
+        ...vlEvent,
+        description: event.target.value,
+      })
+    }
+    const onchangeDate =(event)=>{
+      setVlEvent({
+        ...vlEvent,
+        date: event.target.value,
+      })
+    }
+    
+    const onchangeImage =(event)=>{
+      setVlEvent({
+        ...vlEvent,
+        image: event.target.value,
+      })
     }
     const submitEvent = (e) =>{
         e.preventDefault();
-
-        const data = { username: 'example' };
 
         fetch('http://localhost:4000/addEvent', {
             method: 'POST', // or 'PUT'
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(vlEvent),
           })
           .then(response => response.json())
           .then(data => {
-            console.log('Success:', data);
+            console.log('Success:', data.insertedCount);
           })
           .catch((error) => {
             console.error('Error:', error);
           });
         
     }
+    //upload btn function 
+    const uploadImbBtn = () => {
+      document.getElementById("uploadBtn").style.display= "none"; 
+      document.getElementById("inputimg").style.display= "block"; 
+    }
+    
+    const handleClick =(e) => {
+      e.preventDefault();
+    }
+
     return (
         <div>
                   <div className="addEventWrap fwidth">
@@ -61,20 +96,21 @@ const EventCreate = () => {
                       <div className="rightWidget right">
                         <h2 class="dashHeading">Add event</h2>
                         <div className="eventForm">
-                          <form className="creatForm">
+                          <form onSubmit={handleClick} className="creatForm">
                           <div className="formWrap">
 
                            <div className="formLeft">
                              <p className="p_1">Event Title</p>
-                           <input onChange={onchangeEventName} type="text"></input>
+                           <input onBlur={onchangeEventName} type="text"></input>
 
                            <p className="p_2">Description</p>
-                           <textarea></textarea>
+                           <textarea onBlur={onchangeDes}> </textarea>
 
                            </div>
                            <div className="formRight">
                            <p className="p_6">Event Date</p>
                            <TextField
+                              onBlur={onchangeDate}
                               id="dateEvent"
                               type="date"
                               defaultValue="2020-05-24"
@@ -84,7 +120,8 @@ const EventCreate = () => {
                               }}
                             />
                             <p className="p_7">Banner</p>
-                            <button className="upload" ><img  src={require('./img/cloud-upload.png')} />Upload Image</button>
+                            <button onClick={uploadImbBtn} id="uploadBtn" className="upload" ><img  src={require('./img/cloud-upload.png')} />Upload Image</button>
+                            <input onBlur={onchangeImage} id="inputimg" placeholder="Input image url" type="text"></input>
                             </div>
                             </div>
                             <button className="eventSubmitBtn" onClick={submitEvent}>Submit</button>
