@@ -11,13 +11,15 @@ import {
 } from "react-router-dom";
 import UserEvents from './component/UserEvents/UserEvents';
 import Login from './component/Login/Login';
+import RegVolunteer from './component/RegVolunteer/RegVolunteer';
+import Dashboard from './component/Dashboard/Dashboard';
 
 function App() {
   let location = useLocation();
 
 
   return (
-    <div className={`${location.pathname === "/" && "App hmbg"} ${location.pathname === "/user-event" && "App"}`}>
+    <div className={`${location.pathname === "/" && "hmbg"} ${location.pathname !== "/dash-event" && "App"}  `}>
       
         <Switch>
           <Route exact path="/">
@@ -31,10 +33,17 @@ function App() {
             <Header></Header>
             <UserEvents></UserEvents>
           </Route>
+          <Route path="/reg-event">
+            <RegVolunteer></RegVolunteer>
+          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
+          <Route path="/user-list">
+            <Dashboard></Dashboard>
+          </Route>
         </Switch>
+
     </div>
   );
 }

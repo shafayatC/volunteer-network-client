@@ -1,0 +1,55 @@
+.regWrap {
+	width: 500px;
+	margin: auto;
+}
+
+.logo_2 {
+	width: 200px;
+	margin: auto;
+	display: block;
+	margin-top: 45px;
+	margin-bottom: 40px;
+}
+.logo_2 img {
+	width: 100%;
+}
+.regForm {
+	border: 1px solid #ababab;
+	border-radius: 6px;
+	padding: 30px 40px;
+	background: #fff;
+}
+.regForm h2 {
+	font-size: 17px;
+	font-weight: bold;
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+}
+.formevent input {
+	width: 100%;
+	border: none;
+	border-bottom: thin solid #c4c4c4;
+	font-size: 15px;
+	padding: 5px 0;
+	margin-bottom: 26px;
+}
+
+.formevent button {
+	background: #3f90fc;
+	width: 100%;
+	border: none;
+	padding: 12px;
+	color: #fff;
+	font-size: 14px;
+	margin: 10px 0;
+}
+.disable {
+	background: #fff;
+}
+.MuiInput-underline::before {border: none !important;}
+.dateEvent {
+	width: 100%;
+	padding: 5px 0;
+	float: ;
+	float: left;
+}

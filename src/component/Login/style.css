@@ -6,16 +6,17 @@
 	width: 200px;
 	margin: auto;
 	display: block;
-	margin-top: 50px;
+	margin-top: 45px;
 	margin-bottom: 60px;
 }
 .logo_2 img {
 	width: 100%;
 }
 .loginForm {
-	border: 1px solid #d8d8da;
-	border-radius: 4px;
+	border: 1px solid #ababab;
+	border-radius: 6px;
 	padding: 140px 0;
+	background: #fff;
 }
 .loginForm h2 {
 	font-size: 17px;

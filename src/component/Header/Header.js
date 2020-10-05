@@ -15,7 +15,7 @@ const Header = () => {
                     <Col>
                     <div className="headerWrap fwidth">
                         <div className="logo left">
-                            <Link className="fwidth" to="/dash-event"><img className="fwidth" src={require('./img/logo.png')} /></Link>
+                            <Link className="fwidth" to="/"><img className="fwidth" src={require('./img/logo.png')} /></Link>
                         </div>
                         <div className="menuWrap right">
                             <ul className="menu">
@@ -24,7 +24,7 @@ const Header = () => {
                                 <li><Link to="/dash-event">Events</Link></li>
                                 <li><Link to="/">Blog</Link></li>
                             </ul>
-                            <Link to="/user-event" className="regBtn">Register</Link>
+                            <Link to="/reg-event" className="regBtn">Register</Link>
                             <Link to="/login" className="adminBtn">Admin</Link>
                         </div>
                     </div>

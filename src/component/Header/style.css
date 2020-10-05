@@ -1,4 +1,7 @@
-.headerWrap {padding-bottom: 60px;}
+.headerWrap {
+	padding-bottom: 60px;
+	padding-top: 25px;
+}
 .logo {
 	width: 13%;
 }
