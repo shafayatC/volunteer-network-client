@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     const submitEvent = (e) =>{
         e.preventDefault();
 
-        fetch('http://localhost:4000/addEvent', {
+        fetch('https://radiant-coast-19512.herokuapp.com/addEvent', {
             method: 'POST', // or 'PUT'
             headers: {
               'Content-Type': 'application/json',

@@ -21,11 +21,11 @@ const Header = () => {
                             <ul className="menu">
                                 <li><Link to="/">Home</Link></li>
                                 <li><Link to="/">Donation</Link></li>
-                                <li><Link to="/dash-event">Events</Link></li>
+                                <li><Link to="/">Events</Link></li>
                                 <li><Link to="/">Blog</Link></li>
                             </ul>
-                            <Link to="/reg-event" className="regBtn">Register</Link>
-                            <Link to="/login" className="adminBtn">Admin</Link>
+                            <Link to="/" className="regBtn">Register</Link>
+                            <Link to="/dash-event" className="adminBtn">Admin</Link>
                         </div>
                     </div>
                     </Col>

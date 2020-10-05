@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(()=>{
 
-        fetch("http://localhost:4000/eventList")
+        fetch("https://radiant-coast-19512.herokuapp.com/eventList")
         .then(res => res.json())
         .then(data => setEventList(data))
 

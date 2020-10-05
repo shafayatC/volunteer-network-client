@@ -9,13 +9,13 @@ const Dashboard = () => {
 
     const deletEvent = val => {
         console.log(val);
-        fetch(`http://localhost:4000/userEventDelete/${val}`, {
+        fetch(`https://radiant-coast-19512.herokuapp.com/userEventDelete/${val}`, {
           method: 'DELETE',
         })
         .then(res => res.text()) // or res.json()
         .then(res => {
           if(res){
-            fetch("http://localhost:4000/allRegEvent")
+            fetch("https://radiant-coast-19512.herokuapp.com/allRegEvent")
             .then(res => res.json())
             .then(data =>setEventList(data))
           }
@@ -23,7 +23,7 @@ const Dashboard = () => {
       }
 
     useEffect(()=>{
-        fetch("http://localhost:4000/allRegEvent")
+        fetch("https://radiant-coast-19512.herokuapp.com/allRegEvent")
         .then(res => res.json())
         .then(data =>setEventList(data))
     },[])

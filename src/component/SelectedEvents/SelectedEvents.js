@@ -9,7 +9,7 @@ const SelectedEvents = (props) => {
   const deletEvent =(event) => {
     const parent = event.target.parentNode.parentNode;
     console.log(parent);
-    fetch(`http://localhost:4000/userEventDelete/${props.id}`, {
+    fetch(`https://radiant-coast-19512.herokuapp.com/userEventDelete/${props.id}`, {
       method: 'DELETE',
     })
     .then(res => res.text()) // or res.json()

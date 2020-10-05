@@ -87,7 +87,7 @@ const RegVolunteer = (props) => {
 
     const submitEvent = () =>{
 
-      fetch('http://localhost:4000/regEvent', {
+      fetch('https://radiant-coast-19512.herokuapp.com/regEvent', {
           method: 'POST', // or 'PUT'
           headers: {
             'Content-Type': 'application/json',

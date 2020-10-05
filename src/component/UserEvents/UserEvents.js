@@ -10,7 +10,7 @@ const UserEvents = (props) => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/userEvent/${props.user.email}`)
+        fetch(`https://radiant-coast-19512.herokuapp.com/userEvent/${props.user.email}`)
         .then(res => res.json())
         .then(data => setEventList(data))
 
