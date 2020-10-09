@@ -18,7 +18,7 @@ const Events = (props) => {
     return (
 
             <div className="event">
-                <img src={props.image} />
+                <img src={/\.(jpeg|jpg|gif|png)$/.test(props.image)? props.image: require('./img/empty.jpg') } />
                  <Link className="evnButton" onClick={eventHandler} to="/reg-event">{props.name}</Link>
             </div> 
     );

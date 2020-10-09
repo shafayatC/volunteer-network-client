@@ -3,6 +3,7 @@ import {
     Link
   } from "react-router-dom";
   import './style.css'; 
+  import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Dashboard = () => {
     const [eventList, setEventList] =  useState([]); 
@@ -62,6 +63,7 @@ const Dashboard = () => {
                             )}
                     
                         </table>
+                        {eventList.length === 0 && <div style={{margin: "auto", width: "44px", paddingTop: "20px"}}><CircularProgress /></div>}
 
                     </div>
                 </div>

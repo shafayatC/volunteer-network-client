@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './style.css'
 import Events from '../Events/Events';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Home = () => {
     const [eventList, setEventList] = useState([]);
@@ -38,6 +38,7 @@ const Home = () => {
            <Container>
                 <Row>
                     <Col>
+                    {eventList.length === 0 && <div style={{margin: "auto", width: "44px", paddingTop: "150px"}}><CircularProgress /></div>}
                       <div className="eventWrap fwidth">
                           {eventList.map(data =><Events name={data.name} image={data.image}></Events>)}     
                         </div>

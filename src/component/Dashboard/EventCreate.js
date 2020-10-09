@@ -56,8 +56,19 @@ const useStyles = makeStyles((theme) => ({
     }
     const submitEvent = (e) =>{
         e.preventDefault();
+        
+      const ValidityMsg= []; 
+      const imgValid = /\.(jpeg|jpg|gif|png)$/.test(vlEvent.image); 
 
-        fetch('https://radiant-coast-19512.herokuapp.com/addEvent', {
+      !vlEvent.name  && ValidityMsg.push("Event Title Empty");
+      !vlEvent.description  && ValidityMsg.push("Description Empty");
+      !vlEvent.date  && ValidityMsg.push("Date Empty");
+      !imgValid && ValidityMsg.push("Add valide image")
+
+        
+      if(vlEvent.name && vlEvent.date && vlEvent.description && imgValid){
+
+          fetch('https://radiant-coast-19512.herokuapp.com/addEvent', {
             method: 'POST', // or 'PUT'
             headers: {
               'Content-Type': 'application/json',
@@ -71,7 +82,12 @@ const useStyles = makeStyles((theme) => ({
           .catch((error) => {
             console.error('Error:', error);
           });
-        
+          alert("New Event Created Successfully");
+          ValidityMsg=''; 
+        }else {
+               const mapping =  ValidityMsg.map(res=> '<li>' + res + '</li>' ); 
+               document.getElementById("warningMsg").innerHTML = mapping;  
+          }
     }
     //upload btn function 
     const uploadImbBtn = () => {
@@ -113,7 +129,6 @@ const useStyles = makeStyles((theme) => ({
                               onBlur={onchangeDate}
                               id="dateEvent"
                               type="date"
-                              defaultValue="2020-05-24"
                               className={classes.textField, "date_5"}
                               InputLabelProps={{
                                 shrink: true,
@@ -123,7 +138,10 @@ const useStyles = makeStyles((theme) => ({
                             <button onClick={uploadImbBtn} id="uploadBtn" className="upload" ><img  src={require('./img/cloud-upload.png')} />Upload Image</button>
                             <input onBlur={onchangeImage} id="inputimg" placeholder="Input image url" type="text"></input>
                             </div>
+                            <ul id='warningMsg' style={{float:"left", width:"100%"}}></ul>
+
                             </div>
+
                             <button className="eventSubmitBtn" onClick={submitEvent}>Submit</button>
                           </form>
                       </div>

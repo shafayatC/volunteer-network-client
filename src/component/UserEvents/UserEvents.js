@@ -3,6 +3,7 @@ import SelectedEvents from '../SelectedEvents/SelectedEvents';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const UserEvents = (props) => {
@@ -22,6 +23,7 @@ const UserEvents = (props) => {
            <Container>
                 <Row>
                     <Col>
+                    {eventList.length === 0 && <div style={{margin: "auto", width: "44px", paddingTop: "50px"}}><CircularProgress /></div>}
                       <div className="slEventsWrap fwidth">
                             {eventList.map(data =><SelectedEvents id={data._id} image={data.image} event={data.eventname} date={data.date}></SelectedEvents> )}
                          </div>
