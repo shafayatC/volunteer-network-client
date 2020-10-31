@@ -77,13 +77,16 @@ const useStyles = makeStyles((theme) => ({
           })
           .then(response => response.json())
           .then(data => {
-            console.log('Success:', data.insertedCount);
+            if(data){
+              alert("New Event Created Successfully");
+              console.log('Success:', data.insertedCount);
+            }
           })
           .catch((error) => {
             console.error('Error:', error);
           });
-          alert("New Event Created Successfully");
-          ValidityMsg=''; 
+          
+         console.log( "bangladesh : " +  ValidityMsg === []); 
         }else {
                const mapping =  ValidityMsg.map(res=> '<li>' + res + '</li>' ); 
                document.getElementById("warningMsg").innerHTML = mapping;  

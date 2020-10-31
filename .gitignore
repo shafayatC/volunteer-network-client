@@ -6,6 +6,7 @@
 .pnp.js
 
 # Firebase setting
+/.firebase
 Fire.js
 
 # testing
